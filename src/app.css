@@ -1,4 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
+}
+
+body {
+	font-family: codec-pro, sans-serif;
+	height: 100%;
+}
+
+#ScrollRig-canvas,
+#ScrollRig-canvas>* {
+  pointer-events: none !important;
+}
+
+@font-face {
+	font-family: 'codec-pro';
+	src: url('/fonts/codec-pro-regular.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'codec-pro';
+	src: url('/fonts/codec-pro-bold.otf') format('opentype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'codec-pro';
+	src: url('/fonts/codec-pro-thin.otf') format('opentype');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+h1.gradient-1 {
+  background: url(/mask1.png) no-repeat top right;
+  background-size: 200% 200%;
+  background-clip: text; 
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  padding: 1px;
+    clip-path: inset(1px);
+}
+
+h1.gradient-2 {
+  background: url(/mask2.png) no-repeat center;
+  background-size: 99.8% 99.6%;
+  background-clip: text; 
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  padding: 1px;
+    clip-path: inset(1px);
+}
+
+.web-gl-image {
+  width: 100%;
+  padding: 2rem;
+  aspect-ratio: 16/7;
+  border-radius: 10px;
 }
