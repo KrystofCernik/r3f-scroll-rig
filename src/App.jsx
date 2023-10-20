@@ -6,18 +6,37 @@ import '@14islands/r3f-scroll-rig/css'
 import { ImageWrapper } from './components/Image'
 import { Text } from './components/Text'
 import { DistortedImage } from './components/DistortedImage'
+import { Lens } from './components/Lens'
+import { Suspense } from 'react'
+import { Environment } from '@react-three/drei'
+import { Background } from './components/Background'
 
 function App() {
 
   return (
     <>
-      <GlobalCanvas>
-        <ambientLight />
+      <GlobalCanvas
+         flat
+         camera={{ fov: 14 }}
+         
+      >
+        {(globalChildren) => (
+            <>
+              <Lens>
+                <Suspense fallback="">
+                  <Background />
+                  <Environment files="env/empty_warehouse_01_1k.hdr" />
+                  {globalChildren}
+                </Suspense>
+              </Lens>
+              {/* <ambientLight /> */}
+            </>
+        )}
       </GlobalCanvas>
 
       <SmoothScrollbar>
         {(bind) => (
-        <div className='page w-full h-auto' {...bind}>
+        <div className='page w-full h-auto bg-white' {...bind}>
           
           <section className='w-full h-screen bg-white'>
             <div className='w-full h-full flex flex-row items-center justify-center'>
@@ -26,7 +45,7 @@ function App() {
           </section>
 
           <section className='w-full h-screen bg-white p-32'>
-            <DistortedImage />
+            <ImageWrapper src={'/gameboy.jpg'} />
           </section>
 
           {/* <section className='relative w-full h-screen bg-white'>

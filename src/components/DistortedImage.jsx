@@ -7,7 +7,7 @@ export const DistortedImage = () => {
 
 	const wrapper = useRef()
 	
-	const ref = useRef()
+	const texture = useImageAsTexture(imgRef)
 
 	return (
 		<>
@@ -17,7 +17,7 @@ export const DistortedImage = () => {
 				{(props) => (
 				<mesh {...props}>
 					<planeGeometry args={[1, 1, 16, 16]} />
-					<MeshDistortMaterial speed={5} distort={0.2}>
+					<MeshDistortMaterial speed={5} distort={0.2} map={texture}>
 						<GradientTexture
 							stops={[0, 1]} // As many stops as you want
 							colors={['#FFFF00', '#2EE68E']} // Colors need to match the number of stops

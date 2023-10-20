@@ -15,12 +15,13 @@
 body {
 	font-family: codec-pro, sans-serif;
 	height: 100%;
+  background-color: #ffffff;
 }
 
-#ScrollRig-canvas,
+/* #ScrollRig-canvas,
 #ScrollRig-canvas>* {
   pointer-events: none !important;
-}
+} */
 
 @font-face {
 	font-family: 'codec-pro';
@@ -64,11 +65,4 @@ h1.gradient-2 {
   -webkit-text-fill-color: transparent;
   padding: 1px;
     clip-path: inset(1px);
-}
-
-.web-gl-image {
-  width: 100%;
-  padding: 2rem;
-  aspect-ratio: 16/7;
-  border-radius: 10px;
 }
